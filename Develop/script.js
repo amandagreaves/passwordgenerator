@@ -11,35 +11,46 @@ var generateBtn = document.querySelector("#generate");
 //create a function that randomly takes from the user's criteria
 //
 function writePassword() {
-  let howMuch = prompt("How many characters does your password need to be?", 8);
+  var howMuch = prompt("How many characters does your password need to be?", 8);
   if (howMuch < 8) {
     alert("Password must be between 8-128 characters in length.");
   }
   console.log(howMuch);
   if (howMuch >= 8) {
-    let specChar = prompt("Does it need to contain special characters?(yes or no)", "yes");
+    var specChar = prompt("Does it need to contain special characters?(yes or no)", "yes");
     console.log(specChar);
-    let number = prompt("Does it need to contain numbers?(yes or no)", "yes");
+    var number = prompt("Does it need to contain numbers?(yes or no)", "yes");
     console.log(number);
-    let uppCase = prompt("Does it need to have capital letters?(yes or no)", "yes");
+    var uppCase = prompt("Does it need to have capital letters?(yes or no)", "yes");
     console.log(uppCase);
-    let lowCase = prompt("Does it need to have lower case letters?(yes or no)", "yes");
+    var lowCase = prompt("Does it need to have lower case letters?(yes or no)", "yes");
     console.log(lowCase);
   }
 
-  let digits = Math.floor(Math.random() * 10);
-  let uppCaseLetters = ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
-  let lowCaseLetters = ("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z");
-  let possSpecChar = ("@", "*", "&", "%", "$", "#", "!");
+  let digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  let uppCaseLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+  let lowCaseLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+  let possSpecChar = ["@", "*", "&", "%", "$", "#", "!"];
   console.log (digits);
   console.log (uppCaseLetters);
   console.log (lowCaseLetters);
   console.log (possSpecChar)
+  var ranPass = ""
 
-if (specChar==yes && number==yes && uppCase==yes && lowCase==yes){
+if (specChar=="yes" && number=="yes" && uppCase=="yes" && lowCase=="yes"){
   console.log("yay!")
+  var possChar = []
+  possChar = possChar.concat(uppCaseLetters, digits, lowCaseLetters, possSpecChar)
+  for (i = 0; i < howMuch; i++) {
+  var randomChar = possChar[Math.floor(Math.random() * possChar.length)];
+  console.log (randomChar)
+  ranPass = ranPass.concat(randomChar)
+  }
 }
 
+function generatePassword() {
+  return ranPass
+}
 
 
   let password = generatePassword();
