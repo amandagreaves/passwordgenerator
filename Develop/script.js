@@ -97,8 +97,36 @@ if (specChar=="yes" && number=="yes" && uppCase=="no" && lowCase=="no"){
   ranPass = ranPass.concat(randomChar)
   }
 }
-
-
+if (specChar=="yes" && number=="no" && uppCase=="no" && lowCase=="yes"){
+  console.log("yay!")
+  var possChar = []
+  possChar = possChar.concat(lowCaseLetters, possSpecChar)
+  for (i = 0; i < howMuch; i++) {
+  var randomChar = possChar[Math.floor(Math.random() * possChar.length)];
+  console.log (randomChar)
+  ranPass = ranPass.concat(randomChar)
+  }
+}
+if (specChar=="yes" && number=="no" && uppCase=="yes" && lowCase=="no"){
+  console.log("yay!")
+  var possChar = []
+  possChar = possChar.concat(uppCaseLetters, possSpecChar)
+  for (i = 0; i < howMuch; i++) {
+  var randomChar = possChar[Math.floor(Math.random() * possChar.length)];
+  console.log (randomChar)
+  ranPass = ranPass.concat(randomChar)
+  }
+}
+if (specChar=="no" && number=="yes" && uppCase=="no" && lowCase=="yes"){
+  console.log("yay!")
+  var possChar = []
+  possChar = possChar.concat(digits, lowCaseLetters)
+  for (i = 0; i < howMuch; i++) {
+  var randomChar = possChar[Math.floor(Math.random() * possChar.length)];
+  console.log (randomChar)
+  ranPass = ranPass.concat(randomChar)
+  }
+}
 function generatePassword() {
   return ranPass
 }
